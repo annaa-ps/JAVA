@@ -284,8 +284,96 @@ public class principal {
     }
 
     public static void ex11(){
+        Scanner sc = new Scanner(System.in);
+        int[] v = new int[5];
+        int[] v1 = new int[5];
+        int[] v2 = new int[5];
+        int countV1 = 0, countV2 = 0, i;
+
+        System.out.println("<< Pares e ímpares>>\n");
+        for(i = 0; i < 5; i++){
+            System.out.printf("Digite o %dº valor: \n", i+1);
+            v[i] = sc.nextInt();
+        }
+
+        for(i = 0; i < 5; i++){
+            if(v[i] % 2 == 0){
+                v2[countV2] = v[i];
+                countV2++;
+            }else{
+                v1[countV1] = v[i];
+                countV1++;
+            }
+        }
+
+        System.out.println("\nÍmpares: ");
+        for(i = 0; i < countV1; i++){
+            System.out.print(v1[i]);
+            if (i < countV1 - 1){
+                System.out.print(", ");
+            }
+        }
+
+        System.out.println("\nPares: ");
+        for(i = 0; i < countV2; i++){
+            System.out.print(v2[i]);
+            if (i < countV2 - 1){
+                System.out.print(", ");
+            }
+        }
 
     }
+
+    public static void ex12() {
+        Scanner sc = new Scanner(System.in);
+
+        int verde, azul, amarela, vermelha, totalBolaas;
+
+        System.out.println("Informe a quantidade de bolinas");
+        System.out.print("Verde: ");
+        verde = sc.nextInt();
+        System.out.print("Azul: ");
+        azul = sc.nextInt();
+        System.out.print("Amarela: ");
+        amarela = sc.nextInt();
+        System.out.print("Vermelha:");
+        vermelha = sc.nextInt();
+
+        totalBolaas = verde + azul + amarela + vermelha;
+
+        double probVerde = (verde / (double) totalBolaas)*100;
+        double probAzul = (azul / (double) totalBolaas)*100;
+        double probAmarela = (amarela / (double) totalBolaas)*100;
+        double probVermelha = (vermelha / (double) totalBolaas)*100;
+
+        System.out.println("\nProbabilidades");
+        System.out.printf("Verde: %.2f%%\n", probVerde);
+        System.out.printf("Azul: %.2f%%\n", probAzul);
+        System.out.printf("Amarela: %.2f%%\n", probAmarela);
+        System.out.printf("Vermelha: %.2f%%\n", probVermelha);
+
+        String corMaiorProbabilidade = "Verde";
+        double maiorProbabilidade = probVerde;
+
+        if (probAzul > maiorProbabilidade) {
+            corMaiorProbabilidade = "Azul";
+            maiorProbabilidade = probAzul;
+        }
+        if (probAmarela > maiorProbabilidade) {
+            corMaiorProbabilidade = "Amarela";
+            maiorProbabilidade = probAmarela;
+        }
+        if (probVermelha > maiorProbabilidade) {
+            corMaiorProbabilidade = "Vermelha";
+            maiorProbabilidade = probVermelha;
+        }
+
+        // Exibir a maior probabilidade
+        System.out.printf("<< Maior probabilidade: %s >>\n", corMaiorProbabilidade);
+
+    }
+
+
 
     public static void main(String[] args) {
         // ex01();
@@ -298,6 +386,8 @@ public class principal {
         //ex08();
         //ex09();
         //ex10();
+        //ex11();
+        //ex12();
     }
 
 }
