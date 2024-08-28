@@ -218,6 +218,75 @@ public class principal {
         System.out.printf("A média é %.2f e o desvio-padrão é %.14f\n", media, desvioPadrao);
     }
 
+    public static void ex09(){
+        Scanner sc = new Scanner(System.in);
+        int  i;
+
+        System.out.println("<< Média de n alunos.Máximo 100 alunos >>");
+
+        System.out.println("\nQual é o número de alunos");
+        int numAlunos = sc.nextInt();
+
+        if (numAlunos > 100){
+            System.out.println("Erro! O número mázimo de alunos permitidos é 100");
+            return;
+        }
+
+        double[] notas = new double[numAlunos];
+        double soma = 0;
+
+        for(i = 0; i < numAlunos; i++){
+            System.out.printf("Informe a nota do aluno %d: ", i + 1);
+            notas[i] = sc.nextDouble();
+            soma += notas[i];
+        }
+
+        double media = soma / numAlunos;
+
+        System.out.println("\nRelatório de Notas");
+        for(i = 0; i < numAlunos; i++){
+            System.out.printf("A nota do aluno %d é: %.2f\n", i, notas[i]);
+        }
+
+        System.out.printf("\nA média da turma é: %.2f\n", media);
+    }
+
+    public static void ex10(){
+        Scanner sc = new Scanner(System.in);
+        int[] A = new int[3];
+        int[] B = new int[3];
+        int[] C = new int[3];
+        int i;
+
+        System.out.println("<< Subtração de vetores >>\n");
+
+         for(i = 0; i < 3; i++){
+             System.out.printf("Informe o valor %dº de A: ", i + 1);
+             A[i] = sc.nextInt();
+        }
+
+        for(i = 0; i < 3; i++){
+            System.out.printf("Informe o valor %dº de B: ", i + 1);
+            B[i] = sc.nextInt();
+        }
+
+        for(i = 0; i < 3; i++){
+            C[i] = A[i] - B[i];
+        }
+
+        System.out.println("\nO vetor C, definido como C = A - B, é:");
+        for(i = 0; i < 3; i++){
+            System.out.print(C[i]);
+            if(i < 2){
+                System.out.printf(", ");
+            }
+        }
+    }
+
+    public static void ex11(){
+
+    }
+
     public static void main(String[] args) {
         // ex01();
         //ex02();
@@ -227,6 +296,8 @@ public class principal {
         //ex06();
         //ex07();
         //ex08();
+        //ex09();
+        //ex10();
     }
 
 }
