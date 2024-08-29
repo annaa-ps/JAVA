@@ -373,6 +373,125 @@ public class principal {
 
     }
 
+    public static void ex13(){
+        Scanner sc = new Scanner(System.in);
+        int[] vet = new int[5];
+        int i;
+
+        System.out.println("<< Zerando negativos >>");
+
+        for(i = 0; i < 5; i++){
+            System.out.printf("Informe o %dº número: ", i+1);
+            vet[i] = sc.nextInt();
+        }
+
+        for(i = 0; i < 5; i++){
+            if(vet[i] < 0){
+                vet[i] = 0;
+            }
+        }
+        System.out.println("\nZerando os negativos, obtém-se: ");
+        for(i = 0; i < 5; i++){
+            System.out.print(vet[i] + " ");
+        }
+    }
+
+    public static void ex14(){
+        Scanner sc = new Scanner(System.in);
+        int maxAlunos = 10000;
+        int i;
+
+        System.out.println("<< Universidade X >>");
+        System.out.print("Quantos alunos serão cadastrados: ");
+        int numAlunos = sc.nextInt();
+
+
+        if (numAlunos > maxAlunos) {
+            System.out.println("O número máximo de alunos é 10.000.");
+            return;
+        }
+
+        int[] matricula = new int[numAlunos];
+        char[] classeSocial = new char[numAlunos];
+        double[] cra = new double[numAlunos];
+
+
+        for (i = 0; i < numAlunos; i++) {
+            System.out.print("\nEntre com o número do aluno: ");
+            matricula[i] = sc.nextInt();
+            sc.nextLine();
+
+            System.out.printf("Entre com a classe social do aluno %d (A, B, C, D, E): ", matricula[i]);
+            classeSocial[i] = sc.next().charAt(0);
+
+            System.out.printf("Entre com o CRA do aluno %d: ", matricula[i]);
+            cra[i] = sc.nextDouble();
+        }
+
+        System.out.println("\n==== Alunos Cadastrados ====");
+        for (i = 0; i < numAlunos; i++) {
+            System.out.printf("Número: %d Classe Social: %c CRA: %.2f\n", matricula[i], classeSocial[i], cra[i]);
+        }
+    }
+
+    public static void ex15(){
+        Scanner sc = new Scanner(System.in);
+        int[] vetor = new int[8];
+        boolean[] repetido = new boolean[8];
+
+        System.out.println("<< Valores iguais >>");
+
+        for (int i = 0; i < 8; i++) {
+            System.out.printf("Entre com o número %d: ", i + 1);
+            vetor[i] = sc.nextInt();
+        }
+
+        System.out.print("\nValores repetidos: ");
+
+
+        for (int i = 0; i < 8; i++) {
+            for (int j = i + 1; j < 8; j++) {
+                if (vetor[i] == vetor[j] && !repetido[i]) {
+                    System.out.print(vetor[i] + " ");
+                    repetido[j] = true;
+                    repetido[i] = true;
+                    break;
+                }
+            }
+        }
+
+        System.out.println();
+    }
+
+    public static void ex16(){
+        Scanner sc = new Scanner(System.in);
+        int[] vetor = new int[8];
+        boolean[] contado = new boolean[8];
+
+        System.out.println("<< Valores iguais >>");
+
+        for (int i = 0; i < 8; i++) {
+            System.out.printf("Entre com o número %d: ", i + 1);
+            vetor[i] = sc.nextInt();
+        }
+
+        System.out.println("\nValores repetidos:");
+
+        for (int i = 0; i < 8; i++) {
+            if (!contado[i]) {  // Se o valor ainda não foi contado
+                int contagem = 1;
+                for (int j = i + 1; j < 8; j++) {
+                    if (vetor[i] == vetor[j]) {
+                        contagem++;
+                        contado[j] = true;  // Marca as posições já contadas
+                    }
+                }
+                if (contagem > 1) {  // Se o número apareceu mais de uma vez
+                    System.out.printf("%d aparece %d vezes\n", vetor[i], contagem);
+                }
+            }
+        }
+    }
 
 
     public static void main(String[] args) {
@@ -388,6 +507,10 @@ public class principal {
         //ex10();
         //ex11();
         //ex12();
+        //ex13();
+        //ex14();
+        //ex15();
+        //ex16();
     }
 
 }
